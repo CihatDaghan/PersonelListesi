@@ -1,0 +1,67 @@
+﻿@model PersonelListesi.Models.User
+@{
+    ViewData["Title"] = "GetUser";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .mySlides {
+        display: none;
+    }
+</style>
+
+<div class="w3-content w3-display-container">
+    <center>
+
+        @if (Model.image != null)
+        {
+            <img class="mySlides" src="~/imageresize/@Model.image" style="width:250px;height:250px;">
+        }
+        @if (Model.image1 != null)
+        {
+            <img class="mySlides" src="~/imageresize/@Model.image1" style="width:250px; height: 250px;">
+        }
+        @if (Model.image2 != null)
+        {
+            <img class="mySlides" src="~/imageresize/@Model.image2" style="width:250px; height: 250px;">
+        }
+        @if (Model.image != null && Model.image1 != null)
+        {
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        }
+    </center>
+</div>
+<br>
+<b>ID:</b>
+@Html.TextBoxFor(x => x.ID, new { @class = "form-control", disabled = "disabled" })
+<b>Adı:</b>
+@Html.TextBoxFor(x => x.name, new { @class = "form-control", disabled = "disabled" })
+<b>Soyadı:</b>
+@Html.TextBoxFor(x => x.surname, new { @class = "form-control", disabled = "disabled" })
+<b>Telefon:</b>
+@Html.TextBoxFor(x => x.telephone, new { @class = "form-control", disabled = "disabled" })
+<b>Departmanı:</b>
+@Html.DropDownListFor(x => x.departman, (List<SelectListItem>)ViewBag.data, new { @class = "form-control", disabled = "disabled" })
+<b>Doğum Tarihi:</b>
+@Html.TextBoxFor(x => x.birthday, new { @class = "form-control", disabled = "disabled" })
+<b>Yönetici:</b>
+@Html.DropDownListFor(x => x.adminInformation, (List<SelectListItem>)ViewBag.datas, new { @class = "form-control", disabled = "disabled" })
+<script>
+    var slideIndex = 1;
+    showDivs(slideIndex);
+
+    function plusDivs(n) {
+        showDivs(slideIndex += n);
+    }
+
+    function showDivs(n) {
+        var i;
+        var x = document.getElementsByClassName("mySlides");
+        if (n > x.length) { slideIndex = 1 }
+        if (n < 1) { slideIndex = x.length }
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        x[slideIndex - 1].style.display = "block";
+    }
+</script>

@@ -1,0 +1,36 @@
+﻿@using PersonelListesi.Models
+@{
+    ViewData["Title"] = "Personel Listesi";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+<br />
+<h2>Personel Listesi</h2>
+<a asp-area="" asp-controller="PublicUI" asp-action="NewUser" class="btn btn-primary">Yeni Çalışan Ekle</a>
+<br />
+&nbsp
+<table class="table table-bordered" width="900">
+    <tr>
+        <td>AD</td>
+        <td>SOYAD</td>
+        <td>TELEFON</td>
+        <td>DEPARTMAN</td>
+        <td>DOĞUM TARİHİ</td>
+        <td>YÖNETİCİ BİLGİSİ</td>
+        <td>DÜZENLE</td>
+        <td>SİL</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.name</td>
+            <td>@item.surname</td>
+            <td>@item.telephone</td>
+            <td>@item.departman</td>
+            <td><input type="date" id="birthday" name="birthday" class="form-control" value="@item.birthday" disabled><br /></td>
+            <td>@item.adminInformation</td>
+            <td><a href="/AdminUI/GetUser/@item.ID" class="btn btn-dark">Düzenle</a></td>
+            <td><a href="/AdminUI/DeleteUser/@item.ID" class="btn btn-danger">Sil</a></td>
+        </tr>
+    }
+
+</table>

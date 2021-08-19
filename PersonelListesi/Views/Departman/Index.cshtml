@@ -1,0 +1,28 @@
+﻿@using PersonelListesi.Models
+@{
+    ViewData["Title"] = "Departman";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+&nbsp
+<h2>Departman Listesi</h2>
+<a asp-area="" asp-controller="Departman" asp-action="NewDepartman" class="btn btn-primary">Yeni Departman Ekle</a>
+<br />
+&nbsp
+<table class="table table-bordered">
+    <tr>
+        <td>DEPARTMAN ID</td>
+        <td>DEPARTMAN</td>
+        <td>DÜZENLE</td>
+        <td>SİL</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ID</td>
+            <td>@item.Departman</td>
+            <td><a href="/Departman/GetDepartman/@item.ID" class="btn btn-dark">Düzenle</a></td>
+            <td><a href="/Departman/DeleteDepartman/@item.ID" class="btn btn-danger">Sil</a></td>
+        </tr>
+
+    }
+</table>

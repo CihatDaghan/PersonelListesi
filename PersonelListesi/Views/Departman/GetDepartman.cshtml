@@ -1,0 +1,16 @@
+﻿@model PersonelListesi.Models.Depart
+@{
+    ViewData["Title"] = "GetDepartman";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateDepartman", "Departman", FormMethod.Post))
+{
+    <b>Departman ID</b>
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" } )
+    <b>Departman Adı</b>
+    @Html.TextBoxFor(x => x.Departman, new { @class = "form-control" })
+   <button class="btn btn-info">Güncelle</button>
+}
+
+    

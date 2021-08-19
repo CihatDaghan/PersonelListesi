@@ -1,0 +1,25 @@
+﻿@model PersonelListesi.Models.User
+@{
+    ViewData["Title"] = "GetUser";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+@using (Html.BeginForm("UpdateUser", "AdminUI", FormMethod.Post))
+{
+    <b>ID:</b>
+    @Html.TextBoxFor(x => x.ID, new { @class = "form-control" })
+    <b>Adı:</b>
+    @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+    <b>Soyadı:</b>
+    @Html.TextBoxFor(x => x.surname, new { @class = "form-control" })
+    <b>Telefon:</b>
+    @Html.TextBoxFor(x => x.telephone, new { @class = "form-control" })
+    <b>Departmanı:</b>
+    @Html.DropDownListFor(x => x.departman, (List<SelectListItem>)ViewBag.data, new { @class = "form-control" })
+    <b>Doğum Tarihi:</b>
+    @Html.TextBoxFor(x => x.birthday, new { @class = "form-control" })
+    <b>Yönetici:</b>
+    @Html.DropDownListFor(x => x.adminInformation, (List<SelectListItem>)ViewBag.datas, new { @class = "form-control" })
+   
+    <button class="btn btn-info">Güncelle</button>
+}

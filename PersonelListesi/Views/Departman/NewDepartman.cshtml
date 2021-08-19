@@ -1,0 +1,12 @@
+﻿@using PersonelListesi.Models
+@model PersonelListesi.Models.User
+@{
+    ViewData["Title"] = "Personel Ekle";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+<br />
+<form class="form-group" method="post">
+    <b>DEPARTMAN:*</b>
+    <input type="text" name="Departman" class="form-control" required>
+    <button class="btn btn-danger">Departman Ekle</button>
+</form>

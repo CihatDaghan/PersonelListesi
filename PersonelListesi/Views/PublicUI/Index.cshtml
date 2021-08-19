@@ -1,0 +1,25 @@
+﻿@using PersonelListesi.Models
+@{
+    ViewData["Title"] = "Personel Listesi";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br />
+<h2>Personel Listesi</h2>
+<table class="table table-bordered" width="600">
+    <tr>
+        <td><b>AD</b></td>
+        <td><b>SOYAD</b></td>
+        <td><b>TELEFON</b></td>
+        <td>#</td>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.name</td>
+            <td>@item.surname</td>
+            <td>@item.telephone</td>
+            <td><a href="/PublicUI/GetUser/@item.ID" class="btn btn-danger">DETAY</a></td>
+        </tr>
+    }
+
+</table>

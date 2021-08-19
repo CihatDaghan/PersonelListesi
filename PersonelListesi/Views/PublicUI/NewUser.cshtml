@@ -1,0 +1,32 @@
+﻿@using PersonelListesi.Models
+@model PersonelListesi.Models.UserAdd
+@{
+    ViewData["Title"] = "Personel Ekle";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+<br />
+<form class="form-group" method="post"  enctype="multipart/form-data">
+    <b>AD:*</b>
+    <input type="text" name="name" class="form-control" required>
+    <b>SOYAD:*</b>
+    <input type="text" name="surname" class="form-control" required>
+    <b>TELEFON:*</b>
+    <input type="number" name="telephone" class="form-control" required>
+    <b>DEPARTMAN:</b>
+    @Html.DropDownListFor(x => x.departman, (List<SelectListItem>)ViewBag.data, new { @class = "form-control" })
+    <b>DOĞUM TARİHİ:</b>
+    <input type="date" id="birthday" name="birthday" class="form-control"><br />
+    <b>YÖNETİCİ BİLGİLERİ:</b>
+    @Html.DropDownListFor(x => x.adminInformation, (List<SelectListItem>)ViewBag.datas, new { @class = "form-control" })
+    <br />
+    <b>Fotograf:</b>
+    <input type="file" name="image" class="form-control">
+    <br />
+    <b>Fotograf:</b>
+    <input type="file" name="image1" class="form-control">
+    <br />
+    <b>Fotograf:</b>
+    <input type="file" name="image2" class="form-control">
+    <br />
+    <button class="btn btn-danger">Personel Ekle</button>
+</form>
